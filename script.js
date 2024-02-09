@@ -1,5 +1,6 @@
 // Get the DOM elements
 const form = document.querySelector("form"),
+  formBtn = document.querySelector("form button"),
   userInput = document.querySelector("input"),
   inputLabel = document.querySelector("label"),
   errorLabelMessage = document.querySelector(".label-text-2"),
@@ -13,9 +14,8 @@ const hide = "none";
 const showBlock = "block";
 const showFlex = "flex";
 
-const containerHandler = (container, display, input) => {
+const containerHandler = (container, display) => {
   container.style.display = display;
-  input.value = "";
 };
 
 const inputValidator = (input, errorText) => {
@@ -36,11 +36,18 @@ form.addEventListener("submit", (event) => {
   if (!validateInput) {
     return;
   }
-  containerHandler(mainSection, hide, userInput);
-  containerHandler(successMessage, showBlock, userInput);
+  containerHandler(mainSection, hide);
+  containerHandler(successMessage, showBlock);
+  userInput.value = null;
 });
 
 dismissBtn.addEventListener("click", () => {
-  containerHandler(successMessage, hide, userInput);
-  containerHandler(mainSection, showFlex, userInput);
+  containerHandler(successMessage, hide);
+  containerHandler(mainSection, showFlex);
+});
+
+userInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    formBtn.click();
+  }
 });
