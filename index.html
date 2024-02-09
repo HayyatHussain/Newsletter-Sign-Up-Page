@@ -28,7 +28,10 @@
           </div>
           <div class="form">
             <form>
-              <label for="email">Email address</label>
+              <label for="email"
+                ><span class="label-text-1">Email address</span
+                ><span class="label-text-2"></span
+              ></label>
               <input
                 type="email"
                 name="email"
@@ -46,6 +49,17 @@
           />
         </section>
       </main>
+      <div class="success-message">
+        <img src="./assets/images/icon-success.svg" alt="success-icon" />
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to <span id="email-output"></span>.
+          Please open it and click the button inside to confirm it.
+        </p>
+        <button id="dismiss-btn">Dismiss message</button>
+      </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
