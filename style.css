@@ -264,14 +264,11 @@ Media Queries
 
   .success-message img {
     margin-top: 130px;
+    margin-bottom: 15px;
   }
 
   .success-message h1 {
     margin-top: 18px;
-  }
-
-  .success-message img {
-    margin-bottom: 15px;
   }
 
   .success-message button {
