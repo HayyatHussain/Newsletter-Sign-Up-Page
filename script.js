@@ -43,7 +43,7 @@ const inputValidator = (input, errorText) => {
   }
 };
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   leftSection.style.transform = "translate(0, 0)";
   containerHandler(leftSection, show, show);
   rightSection.style.transform = "translate(0, 0)";
