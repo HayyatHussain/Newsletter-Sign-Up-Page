@@ -85,13 +85,13 @@ Section Styles
 .left {
   width: 50%;
   height: 100%;
-  /*opacity: 0;
+  opacity: 0;
   transition: transform 1s;
-  scale: 0.9;*/
+  scale: 0.9;
 }
 
 .right {
-  /*transform: translate(400px, 0);*/
+  transform: translate(400px, 0);
   display: flex;
   align-items: center;
   background-image: url("./assets/images/illustration-sign-up-desktop.svg");
@@ -104,13 +104,13 @@ Section Styles
   padding-top: 55px;
   padding: 55px 30px 0 0;
   text-align: left;
-  /*transform: translate(0, -400px);*/
+  transform: translate(0, -400px);
 }
 
 /* Styles applied to all children except the last one */
-/*.left > *:not(:nth-child(10)) {
+.left > *:not(:nth-child(10)) {
   transform: translate(-600px, 0);
-}*/
+}
 
 .left .paragraph {
   display: flex;
