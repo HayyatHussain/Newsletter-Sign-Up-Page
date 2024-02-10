@@ -10,49 +10,56 @@
     <div id="main">
       <main role="main">
         <section class="left" role="doc-introduction">
-          <h1>Stay updated!</h1>
-          <p class="heading">
+          <h1 role="heading">Stay updated!</h1>
+          <p class="heading" role="heading">
             Join 60,000+ managers receiving monthly updates on:
           </p>
-          <div class="paragraph">
+          <div class="paragraph" role="text">
             <img src="./assets/images/icon-list.svg" alt="icon" />
             <p>Product discovery and building what matters</p>
           </div>
-          <div class="paragraph">
+          <div class="paragraph" role="text">
             <img src="./assets/images/icon-list.svg" alt="icon" />
             <p>Measuring to ensure that updates are a success</p>
           </div>
-          <div class="paragraph">
+          <div class="paragraph" role="text">
             <img src="./assets/images/icon-list.svg" alt="icon" />
-            <p>And much more!</p>
+            <p role="text">And much more!</p>
           </div>
-          <div class="form">
-            <form>
-              <label for="email"
-                ><span class="label-text-1">Email address</span
-                ><span class="label-text-2"></span
+          <div class="form" role="form">
+            <form role="form">
+              <label for="email" role="label"
+                ><span class="label-text-1" role="text">Email address</span
+                ><span class="label-text-2" role="text"></span
               ></label>
               <input
+                role="textbox"
                 type="email"
                 name="email"
                 id="email"
                 placeholder="email@company.com"
               />
-              <button type="submit">Subscribe to monthly newsletter</button>
+              <button type="submit" role="button">
+                Subscribe to monthly newsletter
+              </button>
             </form>
           </div>
         </section>
         <section class="right" role="img"></section>
       </main>
       <div class="success-message" role="note">
-        <img src="./assets/images/icon-success.svg" alt="success-icon" />
+        <img
+          src="./assets/images/icon-success.svg"
+          alt="success-icon"
+          role="img"
+        />
         <h1>Thanks for subscribing!</h1>
         <p>
           A confirmation email has been sent to <span id="email-output"></span>.
           Please open it and click the button inside to confirm your
           subscription.
         </p>
-        <button id="dismiss-btn">Dismiss message</button>
+        <button id="dismiss-btn" role="button">Dismiss message</button>
       </div>
     </div>
 
