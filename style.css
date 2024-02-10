@@ -277,12 +277,22 @@ Media Queries
   }
 }
 
+@media (max-width: 550px) {
+  .success-message button {
+    margin-top: 230px;
+  }
+}
+
 @media (max-width: 480px) {
   main {
     gap: -10px;
   }
   .success-message {
     padding: 0 30px;
+  }
+
+  .success-message button {
+    margin-top: 200px;
   }
 }
 
