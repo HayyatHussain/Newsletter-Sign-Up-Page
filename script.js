@@ -6,16 +6,29 @@ const form = document.querySelector("form"),
   errorLabelMessage = document.querySelector(".label-text-2"),
   dismissBtn = document.getElementById("dismiss-btn"),
   mainSection = document.querySelector("main"),
-  successMessage = document.querySelector(".success-message");
+  leftSection = document.querySelector(".left"),
+  rightSection = document.querySelector(".right"),
+  successMessage = document.querySelector(".success-message"),
+  outputTxt = document.getElementById("email-output");
+
+// For Transitioning all the elements of the left section
+const staggerAnimation = (container) => {
+  const children = container.children;
+  const length = children.length;
+  for (let i = 0; i < length; i++) {
+    children[i].style.transition = "all 0.5s ease " + i * 0.3 + "s";
+    children[i].style.transform = "translate(0, 0)";
+  }
+};
 
 // Text to use for alternating containers
 
-const hide = "none";
-const showBlock = "block";
-const showFlex = "flex";
+const hide = "0";
+const show = "1";
 
-const containerHandler = (container, display) => {
-  container.style.display = display;
+const containerHandler = (container, scale, opacity) => {
+  container.style.scale = scale;
+  container.style.opacity = opacity;
 };
 
 const inputValidator = (input, errorText) => {
@@ -30,23 +43,36 @@ const inputValidator = (input, errorText) => {
   }
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  leftSection.style.transform = "translate(0, 0)";
+  containerHandler(leftSection, show, show);
+  rightSection.style.transform = "translate(0, 0)";
+  containerHandler(rightSection, show, show);
+  staggerAnimation(leftSection);
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  // User Email
+  const email = userInput.value;
   const validateInput = inputValidator(userInput, errorLabelMessage);
   if (!validateInput) {
     return;
+  } else {
+    containerHandler(mainSection, hide, hide);
+    containerHandler(successMessage, show, show);
+    outputTxt.innerText = email;
+    userInput.value = "";
   }
-  containerHandler(mainSection, hide);
-  containerHandler(successMessage, showBlock);
-  userInput.value = null;
 });
 
 dismissBtn.addEventListener("click", () => {
-  containerHandler(successMessage, hide);
-  containerHandler(mainSection, showFlex);
+  containerHandler(successMessage, hide, hide);
+  containerHandler(mainSection, show, show);
 });
 
 userInput.addEventListener("keydown", (event) => {
+  event.preventDefault();
   if (event.key === "Enter") {
     formBtn.click();
   }
