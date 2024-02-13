@@ -22,15 +22,16 @@ const staggerAnimation = (container) => {
 };
 
 // Text to use for alternating containers
-
 const hide = "0";
 const show = "1";
 
+// Function to show and hide containers
 const containerHandler = (container, scale, opacity) => {
   container.style.scale = scale;
   container.style.opacity = opacity;
 };
 
+// Function to validate input
 const inputValidator = (input, errorText) => {
   if (input.value.trim() === "") {
     input.classList.add("invalid-input");
@@ -43,6 +44,7 @@ const inputValidator = (input, errorText) => {
   }
 };
 
+// Animation on load
 window.addEventListener("load", () => {
   leftSection.style.transform = "translate(0, 0)";
   containerHandler(leftSection, show, show);
@@ -51,6 +53,7 @@ window.addEventListener("load", () => {
   staggerAnimation(leftSection);
 });
 
+// Form submittion
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   // User Email
@@ -66,11 +69,13 @@ form.addEventListener("submit", (event) => {
   }
 });
 
+// Dismiss button of the success message
 dismissBtn.addEventListener("click", () => {
   containerHandler(successMessage, hide, hide);
   containerHandler(mainSection, show, show);
 });
 
+// Click button when pressed enter upon focus on input field
 userInput.addEventListener("keydown", (event) => {
   event.preventDefault();
   if (event.key === "Enter") {
